@@ -1,3 +1,6 @@
+# Tên đề tài
+Xây dựng module kiểm tra thị giác tự động làm công cụ phản hồi trực quan cho hệ thống Agentic AI
+
 # Kiến trúc & Pipeline Xử lý Ảnh (Core Engine)
 ```text
 [Baseline Image] + [Current Captured Image]

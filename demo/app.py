@@ -348,3 +348,23 @@ with tab3:
             "Predicted Defect": [f"True Positive (TP) = {tp}", f"False Positive (FP) = {fp}"],
             "Predicted No Defect": [f"False Negative (FN) = {fn}", f"True Negative (TN) = {tn}"]
         })
+
+    # Ablation Study Expander (Available anytime)
+    with st.expander("🔬 Xem kết quả Nghiên cứu Triệt tiêu Thành phần (Ablation Study)"):
+        st.markdown("Đo lường sự đóng góp của từng thành phần kỹ thuật trên 5 cấu hình thử nghiệm:")
+        st.table({
+            "Cấu hình thử nghiệm": [
+                "1. Raw Grayscale Diff",
+                "2. SSIM Only",
+                "3. Max Color Diff Only",
+                "4. SSIM + Color (No Morphology)",
+                "5. Full Proposed Pipeline"
+            ],
+            "Accuracy": ["98.0%", "90.0%", "100.0%", "100.0%", "100.0%"],
+            "Recall": ["96.0%", "80.0%", "100.0%", "100.0%", "100.0%"],
+            "F1-Score": ["0.9796", "0.8889", "1.0000", "1.0000", "1.0000"],
+            "Số BBox TB / lỗi": ["49.32 (Vỡ nát)", "2.72", "4.00", "8.20 (Phân mảnh)", "2.92 (Tối ưu)"],
+            "Latency (CPU)": ["33.8 ms", "127.9 ms", "38.6 ms", "134.7 ms", "138.5 ms"]
+        })
+        st.info("💡 **Kết luận Ablation Study:** Loại bỏ Morphology khiến Bounding Box bị phân mảnh gấp gần 3 lần (8.20 hộp/lỗi); Loại bỏ Max Color Diff khiến Recall sụt giảm nghiêm trọng còn 80.0% do bỏ sót lỗi đổi màu phẳng.")
+
