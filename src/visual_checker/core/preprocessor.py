@@ -33,22 +33,42 @@ class ImagePreprocessor:
             raise TypeError(f"Unsupported image input type: {type(image_input)}")
 
     @staticmethod
-    def align_dimensions(img1: np.ndarray, img2: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
-        """Ensures both images share identical dimensions by resizing if needed."""
+    def align_dimensions(
+        img1: np.ndarray, 
+        img2: np.ndarray, 
+        mode: str = "pad"
+    ) -> Tuple[np.ndarray, np.ndarray]:
+        """Ensures both images share identical dimensions.
+        
+        Args:
+            img1: Baseline image array (BGR)
+            img2: Current image array (BGR)
+            mode: 'pad' for Canvas Padding anchored at (0, 0) (preserves layout & avoids false header shifts);
+                  'resize' for Lanczos-4 resampling (rescaling when viewport/DPI scale differs).
+        """
         h1, w1 = img1.shape[:2]
         h2, w2 = img2.shape[:2]
 
         if (h1, w1) == (h2, w2):
             return img1, img2
 
-        # Target max dimensions
         target_w = max(w1, w2)
         target_h = max(h1, h2)
 
-        aligned1 = cv2.resize(img1, (target_w, target_h), interpolation=cv2.INTER_LANCZOS4)
-        aligned2 = cv2.resize(img2, (target_w, target_h), interpolation=cv2.INTER_LANCZOS4)
+        if mode == "pad":
+            # Canvas padding anchored at (0, 0):
+            # Preserves absolute coordinates for Header, Menu, and unaltered top sections.
+            # Default fill: 255 (white) matching standard web canvas background.
+            aligned1 = np.full((target_h, target_w, 3), 255, dtype=np.uint8)
+            aligned2 = np.full((target_h, target_w, 3), 255, dtype=np.uint8)
 
-        return aligned1, aligned2
+            aligned1[:h1, :w1] = img1
+            aligned2[:h2, :w2] = img2
+            return aligned1, aligned2
+        else:
+            aligned1 = cv2.resize(img1, (target_w, target_h), interpolation=cv2.INTER_LANCZOS4)
+            aligned2 = cv2.resize(img2, (target_w, target_h), interpolation=cv2.INTER_LANCZOS4)
+            return aligned1, aligned2
 
     @staticmethod
     def filter_noise(image: np.ndarray, filter_type: str = "gaussian") -> np.ndarray:

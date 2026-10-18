@@ -22,12 +22,14 @@ class VisualInspectionEngine:
         ssim_threshold: float = 0.995,
         diff_threshold_val: int = 25,
         min_defect_area: int = 40,
-        filter_noise: bool = False
+        filter_noise: bool = False,
+        alignment_mode: str = "pad"
     ):
         self.ssim_threshold = ssim_threshold
         self.diff_threshold_val = diff_threshold_val
         self.min_defect_area = min_defect_area
         self.filter_noise = filter_noise
+        self.alignment_mode = alignment_mode
 
     def compare(
         self,
@@ -47,8 +49,10 @@ class VisualInspectionEngine:
         img_baseline = ImagePreprocessor.load_image(baseline_input)
         img_current = ImagePreprocessor.load_image(current_input)
 
-        # 2. Harmonize dimensions
-        img_baseline, img_current = ImagePreprocessor.align_dimensions(img_baseline, img_current)
+        # 2. Harmonize dimensions (Canvas Padding or Lanczos-4)
+        img_baseline, img_current = ImagePreprocessor.align_dimensions(
+            img_baseline, img_current, mode=self.alignment_mode
+        )
 
         base_proc = ImagePreprocessor.filter_noise(img_baseline) if self.filter_noise else img_baseline
         curr_proc = ImagePreprocessor.filter_noise(img_current) if self.filter_noise else img_current

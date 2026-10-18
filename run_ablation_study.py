@@ -27,22 +27,23 @@ def run_ablation():
         {"name": "5. Full Proposed Pipeline", "mode": "full_pipeline"}
     ]
     
-    # Load dataset pairs
+    # Load all dataset pairs dynamically
+    s1_files = sorted(list((DATASET_DIR / "scenario_1" / "baseline").glob("sample_*.png")))
     s1_pairs = []
-    for i in range(1, 26):
-        fn = f"sample_{i:02d}.png"
-        b = DATASET_DIR / "scenario_1" / "baseline" / fn
-        c = DATASET_DIR / "scenario_1" / "current" / fn
-        s1_pairs.append((b, c, False)) # Ground truth: No defect
-        
+    for b in s1_files:
+        c = DATASET_DIR / "scenario_1" / "current" / b.name
+        if c.exists():
+            s1_pairs.append((b, c, False)) # Ground truth: No defect
+            
+    s2_files = sorted(list((DATASET_DIR / "scenario_2" / "baseline").glob("sample_*.png")))
     s2_pairs = []
-    for i in range(1, 26):
-        fn = f"sample_{i:02d}.png"
-        b = DATASET_DIR / "scenario_2" / "baseline" / fn
-        c = DATASET_DIR / "scenario_2" / "current" / fn
-        s2_pairs.append((b, c, True)) # Ground truth: Has defect
+    for b in s2_files:
+        c = DATASET_DIR / "scenario_2" / "current" / b.name
+        if c.exists():
+            s2_pairs.append((b, c, True)) # Ground truth: Has defect
         
     all_pairs = s1_pairs + s2_pairs
+    print(f"[*] Loaded {len(s1_pairs)} Scenario 1 pairs and {len(s2_pairs)} Scenario 2 pairs (Total: {len(all_pairs)} pairs / {len(all_pairs)*2} images)")
     
     summary_results = []
     

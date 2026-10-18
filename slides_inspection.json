@@ -1,0 +1,551 @@
+[
+  {
+    "slide_num": 1,
+    "title": "(No Title)",
+    "texts": [
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "Xử Lý Ảnh Và Ứng Dụng",
+      "Xây dựng module kiểm tra thị giác tự động làm công cụ phản hồi trực quan cho hệ thống Agentic AI",
+      "GVHD: ThS. Cáp Phạm Đình Thăng",
+      "Nguyễn Hoàng Bảo Long – 25410086",
+      "Developing an automated visual inspection module to serve as a visual feedback tool for an Agentic AI system"
+    ]
+  },
+  {
+    "slide_num": 2,
+    "title": "(No Title)",
+    "texts": [
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "BÀI TOÁN",
+      "PHƯƠNG PHÁP ĐỀ XUẤT",
+      "KẾT QUẢ THỰC NGHIỆM",
+      "KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN"
+    ]
+  },
+  {
+    "slide_num": 3,
+    "title": "1. BÀI TOÁN",
+    "texts": [
+      "1. BÀI TOÁN",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "Input và Output",
+      "Mô hình hóa bài toán bằng công thức toán học",
+      "Ý nghĩa thực tiễn của bài toán",
+      "Thách thức và khó khăn",
+      "Khảo sát 5 phương pháp"
+    ]
+  },
+  {
+    "slide_num": 4,
+    "title": "1.1 Input và Output",
+    "texts": [
+      "1.1 Input và Output",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "Baseline",
+      "Current"
+    ]
+  },
+  {
+    "slide_num": 5,
+    "title": "1.1 Input và Output",
+    "texts": [
+      "1.1 Input và Output",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM"
+    ]
+  },
+  {
+    "slide_num": 6,
+    "title": "1.1 Mô hình hóa bài toán bằng công thức toán học",
+    "texts": [
+      "1.1 Mô hình hóa bài toán bằng công thức toán học",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM"
+    ]
+  },
+  {
+    "slide_num": 7,
+    "title": "1.2 Ý nghĩa thực tiễn của bài toán",
+    "texts": [
+      "1.2 Ý nghĩa thực tiễn của bài toán",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "Trải nghiệm của user đối với website"
+    ]
+  },
+  {
+    "slide_num": 8,
+    "title": "1.2 Ý nghĩa thực tiễn của bài toán",
+    "texts": [
+      "1.2 Ý nghĩa thực tiễn của bài toán",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "Silent Visual Bugs",
+      "Thực trạng SRE: Server trả về HTTP 200 OK, Console có 0 JS Errors, nhưng UI bị vỡ layout, mất nút thanh toán hoặc sai màu thương hiệu."
+    ]
+  },
+  {
+    "slide_num": 9,
+    "title": "1.3 Thách thức và khó khăn",
+    "texts": [
+      "1.3 Thách thức và khó khăn",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "THÁCH THỨC 1",
+      "Nhiễu Khử Răng Cưa (Anti-Aliasing)",
+      "* Bản chất: Cùng một đoạn text/icon vector khi render trên các GPU/trình duyệt khác nhau sinh ra dải màu làm mịn biên khác biệt.",
+      "* Hậu quả: Thuật toán pixel thô báo động giả hàng ngàn điểm ảnh rác dù mắt người nhìn thấy hoàn toàn giống nhau.",
+      "-> Giải pháp: Phân tích cấu trúc SSIM kết hợp phân ngưỡng động τdiff = 25.",
+      "THÁCH THỨC 2",
+      "Lệch Kích Thước & Scrollbar (1-2 px)",
+      "* Bản chất: Ảnh chụp màn hình có thể lệch 1-2 pixel do thanh cuộn (scrollbar dynamic), thanh công cụ trình duyệt hoặc responsive.",
+      "* Hậu quả: Khi ma trận lệch kích thước, phép trừ ma trận lập tức ném Exception hoặc làm trượt toàn bộ khung ảnh so sánh.",
+      "-> Giải pháp: Tự động chuẩn hóa kích thước bằng nội suy hình học Lanczos-4 sắc nét.",
+      "THÁCH THỨC 3",
+      "Hiện Tượng Bùng Nổ Bounding Box",
+      "* Bản chất: Một vùng ảnh bị co méo hoặc dịch chuyển nhỏ bị vỡ vụn thành hàng chục mảnh nhỏ rời rạc (40-50 Bbox rác).",
+      "* Hậu quả: Làm tràn bộ nhớ ngữ cảnh (Context Window Overflow) của LLM Agent, khiến AI tê liệt không thể định vị lỗi.",
+      "-> Giải pháp: Toán tử Hình thái học Đóng & Giãn ΦK gom cụm về 2.92 Bbox/lỗi.",
+      "THÁCH THỨC 4",
+      "Ràng Buộc Độ Trễ Thời Gian Thực (<150ms)",
+      "* Bản chất: Các mô hình Deep Learning hoặc Multimodal VLM có độ trễ lớn (2-5 giây/ảnh) và tiêu tốn chi phí API đám mây đắt đỏ.",
+      "* Hậu quả: Không thể tích hợp vào vòng lặp kiểm tra liên tục (Continuous Visual Feedback Loop) của Agentic AI.",
+      "-> Giải pháp: Pipeline Thị giác máy tính tất định chạy siêu tốc 138.5 ms trên CPU thường."
+    ]
+  },
+  {
+    "slide_num": 10,
+    "title": "1.4 Khảo sát 5 phương pháp",
+    "texts": [
+      "1.4 Khảo sát 5 phương pháp",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "NHÓM 1: TRUYỀN THỐNG",
+      "Pixel Diff & SSIM",
+      "1. Pixelmatch / Resemble.js:",
+      "So khớp từng điểm ảnh. Tốc độ siêu nhanh nhưng cực kỳ nhạy cảm với nhiễu anti-aliasing và lệch 1px vi mô.",
+      "2. SSIM đơn thuần (Wang et al.):",
+      "Đo tương đồng cấu trúc cục bộ. Rất tốt với biến dạng hình học nhưng MÙ MÀU HOÀN TOÀN với lỗi chỉ đổi màu sắc nút bấm cùng độ chói.",
+      "NHÓM 2: ĐẶC TRƯNG & DL",
+      "Feature Matching & YOLO",
+      "3. SIFT / ORB Matching:",
+      "Trích xuất keypoints và biến đổi Homography. Rất tốt với xoay lật 3D nhưng không phù hợp với UI phẳng 2D chứa nhiều văn bản đồng nhất.",
+      "4. YOLO / Faster R-CNN:",
+      "Phát hiện đối tượng component (button, navbar). Đòi hỏi tập dữ liệu gán nhãn lớn và không phát hiện được lệch pixel vi mô 1-2px.",
+      "NHÓM 3: MÔ HÌNH VLM",
+      "GPT-4V & Gemini Vision",
+      "5. Multimodal LLM / VLM:",
+      "Gửi trực tiếp 2 ảnh vào LLM để hỏi lỗi bằng prompt tự nhiên. Khả năng suy luận ngữ nghĩa cực kỳ thông minh nhưng chi phí API cao, độ trễ lớn (2-5 giây/ảnh) và có thể bị ảo giác tọa độ Bounding Box (sai lệch pixel so với thực tế)."
+    ]
+  },
+  {
+    "slide_num": 11,
+    "title": "2. PHƯƠNG PHÁP ĐỀ XUẤT",
+    "texts": [
+      "2. PHƯƠNG PHÁP ĐỀ XUẤT",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "Sơ đồ kiến trúc tổng thể (Overview Framework)",
+      "Tiền xử lý & Căn chỉnh Hình học Lanczos-4",
+      "Đo lường Sai khác Kép SSIM & Max Color Diff",
+      "Xử lý Hình thái học Gom cụm ΦK & Suzuki-Abe",
+      "Cơ chế Đóng gói Thông tin cho Agentic AI"
+    ]
+  },
+  {
+    "slide_num": 12,
+    "title": "2.1. Overview Framework",
+    "texts": [
+      "2.1. Overview Framework",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM"
+    ]
+  },
+  {
+    "slide_num": 13,
+    "title": "2.1. Overview Framework",
+    "texts": [
+      "2.1. Overview Framework",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM"
+    ]
+  },
+  {
+    "slide_num": 14,
+    "title": "2.1. Overview Framework",
+    "texts": [
+      "2.1. Overview Framework",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM"
+    ]
+  },
+  {
+    "slide_num": 15,
+    "title": "2.2. Tiền xử lý & Căn chỉnh Hình học Lanczos-4",
+    "texts": [
+      "2.2. Tiền xử lý & Căn chỉnh Hình học Lanczos-4",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "GIAI ĐOẠN 1",
+      "Nạp & Chuẩn hóa Kênh",
+      "Đọc ảnh mảng NumPy uint8 BGR. Khử kênh Alpha (RGBA → BGR) để loại bỏ nhiễu trong suốt.",
+      "GIAI ĐOẠN 2",
+      "Kiểm tra Tương thích",
+      "So khớp kích thước (Hbase, Wbase) vs (Hcurr, Wcurr). Phát hiện lệch do scrollbar / viewport.",
+      "GIAI ĐOẠN 3",
+      "Lanczos-4 Resampling",
+      "Nội suy nhân sinc với bán kính a=4: đưa Icurr về chuẩn (Wbase, Hbase) mà không làm nhòe ảnh.\u000b-> 1000x800",
+      "NHÂN NỘI SUY LANCZOS-4 (a = 4)",
+      "L(x) = [ sin(π·x) · sin(π·x/4) ] / [ π² · x² / 4 ]   (|x| < 4)",
+      "* Ưu thế vượt trội: Bảo toàn độ sắc nét tuyệt đối của từng đường viền font chữ 1px và icon vector nhỏ.",
+      "* So sánh: Phép nội suy Bilinear hoặc Bicubic gây mờ viền (Blurring), sinh ra hàng loạt pixel sai lệch giả ở cạnh chữ.",
+      "SINH ẢNH ĐỘ XÁM CHUẨN ITU-R BT.601",
+      "Y = 0.299 · R  +  0.587 · G  +  0.114 · B",
+      "* Mục đích: Phục vụ tính toán chỉ số tương đồng cấu trúc SSIM siêu tốc trên ma trận 1 kênh đơn.",
+      "* Tối ưu: Giảm 66.7% chi phí tính toán cửa sổ trượt Gauss so với việc tính SSIM độc lập trên cả 3 kênh màu."
+    ]
+  },
+  {
+    "slide_num": 16,
+    "title": "2.3. Đo lường Sai khác Kép SSIM, Max Color Diff",
+    "texts": [
+      "2.3. Đo lường Sai khác Kép SSIM, Max Color Diff",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "KÊNH 1: CẤU TRÚC SSIM",
+      "DSSIM(x, y) = uint8( (1 - SSIM(x, y)) / 2 × 255 )",
+      "* Cửa sổ trượt Gauss 7 × 7: Đo lường độ chói, độ tương phản và tương quan cấu trúc bề mặt.",
+      "* Thế mạnh cốt lõi: Bắt cực tốt lỗi biến dạng layout, co méo hình ảnh, tràn chữ hoặc mất icon.",
+      "* Điểm mù: Bỏ sót lỗi đổi màu sắc thuần túy nếu hai màu có cùng độ sáng Luminance Y.",
+      "KÊNH 2: SAI LỆCH MÀU SẮC CỰC ĐẠI",
+      "DColor(x, y) = max( |IbB - IcB|,  |IbG - IcG|,  |IbR - IcR| )",
+      "* Đo chênh lệch cực đại 3 kênh: So khớp độc lập từng kênh Blue, Green, Red.",
+      "* Thế mạnh cốt lõi: Bắt trọn vẹn lỗi đổi màu nút bấm (Vàng → Đỏ), đổi màu nền, đổi viền border.",
+      "* Ý nghĩa: Khắc phục 100% điểm mù của kênh SSIM, tạo nên giải pháp song song toàn diện.",
+      "HỢP NHẤT CỰC ĐẠI (MAX FUSION) & TRỰC QUAN HÓA BẢN ĐỒ NHIỆT (HEATMAP)",
+      "D(x, y) = max( DSSIM(x, y), DColor(x, y) )   →   Phân ngưỡng: M(x, y) = 1 nếu D ≥ τdiff (25), ngược lại = 0",
+      "Overlay trực quan: Áp dụng bảng màu giả định cv2.COLORMAPJET: Overlay = 0.6 · Icurr + 0.4 · Heatmap giúp kỹ sư nhận diện ngay vị trí sự cố."
+    ]
+  },
+  {
+    "slide_num": 17,
+    "title": "2.4. Xử lý Hình thái học Gom cụm ΦK, Suzuki-Abe",
+    "texts": [
+      "2.4. Xử lý Hình thái học Gom cụm ΦK, Suzuki-Abe",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "BƯỚC 1",
+      "Phép Đóng (Closing)",
+      "Mclose = (M ⊕ K) ⊖ K",
+      "Hàn gắn các vết rạn nứt nội bộ và lấp đầy các khoảng trống rỗng bên trong vùng lỗi do vi sai màu sắc.",
+      "BƯỚC 2",
+      "Phép Giãn (Dilation)",
+      "M̃ = Mclose ⊕ K",
+      "Mở rộng biên độ và liên kết các đảo pixel lân cận về cùng một khối liên thông thống nhất.",
+      "BƯỚC 3",
+      "Dò biên Suzuki-Abe",
+      "cv2.findContours & boundingRect",
+      "Trích xuất chính xác tọa độ hộp bao (x, y, w, h) của từng thành phần liên thông có diện tích ≥ Amin (40px).",
+      "49.32 → 2.92",
+      "Triệt tiêu Bùng nổ Bounding Box",
+      "Toán tử ΦK giúp giảm số lượng Bounding Box rác trung bình từ 49.32 xuống còn 2.92 bbox/lỗi, bảo vệ an toàn Context Window của LLM Agent.",
+      "PHÂN LOẠI CẤP ĐỘ NGHIÊM TRỌNG (SEVERITY)",
+      "[CRITICAL]: Diện tích > 5000 px hoặc vỡ layout quy mô lớn.",
+      "[WARNING]: Diện tích 500 - 5000 px (lệch card, đổi heading).",
+      "[MINOR]: Diện tích 40 - 500 px (lệch icon, đổi màu viền nhỏ)."
+    ]
+  },
+  {
+    "slide_num": 18,
+    "title": "2.5. Cơ chế Đóng gói Thông tin cho Agentic AI",
+    "texts": [
+      "2.5. Cơ chế Đóng gói Thông tin cho Agentic AI",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "CHUẨN HÓA JSON SCHEMA",
+      "{\u000b  \"status\": \"FAIL\",",
+      "\"ssim_score\": 0.9821,",
+      "\"diff_pixel_ratio\": 0.0142,",
+      "\"defects_count\": 1,",
+      "\"defects\": [",
+      "{",
+      "\"id\": 1,",
+      "\"bbox\": [680, 24, 140, 45],",
+      "\"area\": 6300,",
+      "\"severity\": \"CRITICAL\",",
+      "\"center\": [750, 46]",
+      "}",
+      "],",
+      "\"visual_artifacts\": { ... }",
+      "SEMANTIC PROMPT CHO LLM AGENT",
+      "Tự động sinh Prompt định hướng hành động:",
+      "\"[VISUAL INSPECTION ALERT] UI Regression detected! Total 1 defect found. Defect #1 at (x=680, y=24, w=140, h=45) in Header/Navbar region. Issue: Significant Color/Style deviation (SSIM=0.982). Please inspect CSS styles for navbar action button and restore baseline.'\"",
+      "* Khắc phục hoàn toàn ảo giác tọa độ: LLM không cần tự đoán tọa độ từ ảnh thô.",
+      "* Đối soát nhanh cây DOM: Agent tra cứu trực tiếp selector CSS tại vùng (680, 24).",
+      "* Tự động sửa mã nguồn: Agent sinh lệnh vá CSS/HTML và tự commit kiểm thử lại."
+    ]
+  },
+  {
+    "slide_num": 19,
+    "title": "3. KẾT QUẢ THỰC NGHIỆM",
+    "texts": [
+      "3. KẾT QUẢ THỰC NGHIỆM",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "Dataset",
+      "Phương pháp đánh giá và metric",
+      "Kết quả thu được và ma trận nhầm lẫn",
+      "Ví dụ thực nghiệm trực quan",
+      "Ablation study"
+    ]
+  },
+  {
+    "slide_num": 20,
+    "title": "3.1. Dataset",
+    "texts": [
+      "3.1. Dataset",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "SCENARIO 1: 25 CẶP ÂM TÍNH (50%)",
+      "Kiểm định Tính Ổn định & Đo False Positive Rate",
+      "* Đối tượng so sánh: Ibase vs Ibase (ảnh chuẩn so sánh với chính nó).",
+      "* Mục tiêu khoa học: Kiểm chứng hệ thống không sinh cờ lỗi rác khi không có sự cố.",
+      "* Kết quả thực nghiệm: 25/25 cặp đều dự đoán PERFECT MATCH, FPR = 0.0%.",
+      "SCENARIO 2: 25 CẶP DƯƠNG TÍNH (50%)",
+      "5 Nhóm Đột biến Tiêm lỗi có Kiểm soát",
+      "• 1. Color Change (5 cặp): Đổi màu nút bấm, màu nền, màu text.",
+      "• 2. Layout Shift (5 cặp): Lệch component 20-50px sang trái/phải.",
+      "• 3. Missing Element (5 cặp): Mất nút Sign Up, mất icon, mất Trust Card.",
+      "• 4. Text Modification (5 cặp): Sửa tiêu đề Hero, đổi font chữ.",
+      "• 5. Size Distortion (5 cặp): Co méo ảnh tỉ lệ 30% - 60%.",
+      "ĐẶC THÙ THUẬT TOÁN: TRAINING-FREE / ZERO-SHOT VÀ CÂN BẰNG DỮ LIỆU TUYỆT ĐỐI",
+      "* Pipeline thị giác hình thức tất định vận hành không cần tập dữ liệu huấn luyện (Training-free), không đòi hỏi fine-tuning tham số.",
+      "* Toàn bộ 50 cặp ảnh chuẩn hóa 1000 × 800px được sử dụng làm Benchmark Test Set để đối soát mù với nhãn Ground Truth (50% Bình thường / 50% Có lỗi)."
+    ]
+  },
+  {
+    "slide_num": 21,
+    "title": "3.2. Phương pháp đánh giá và metric",
+    "texts": [
+      "3.2. Phương pháp đánh giá và metric",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "1. ACCURACY",
+      "Độ chính xác toàn cục",
+      "Accuracy = (TP + TN) / Tổng",
+      "Đo lường tỷ lệ dự đoán chính xác trên cả 50 cặp ảnh.",
+      "Mục tiêu: 100.0%",
+      "2. RECALL",
+      "Độ nhạy phát hiện lỗi",
+      "Recall = TP / (TP + FN)",
+      "Bắt buộc phải đạt 100% để không bỏ lọt bất kỳ sự cố nào.",
+      "Yêu cầu: 100.0%",
+      "3. PRECISION",
+      "Độ chuẩn xác cảnh báo",
+      "Precision = TP / (TP + FP)",
+      "Đảm bảo mọi cảnh báo phát ra đều tương ứng lỗi thực tế.",
+      "4. FPR",
+      "Tỷ lệ báo động giả",
+      "FPR = FP / (FP + TN)",
+      "Đo lường mức độ gây nhiễu cho kỹ sư SRE trên Scenario 1.",
+      "Mục tiêu: 0.0%",
+      "5. BBOX / BUG",
+      "Độ gom cụm Bounding Box",
+      "Mean Bboxes per Defect",
+      "Đo mức độ phân mảnh; tiệm cận 1.0 → 3.0 là tối ưu; >10 là vỡ nát.",
+      "Mục tiêu: 1.0 → 3.0",
+      "6. LATENCY",
+      "Độ trễ thực thi trung bình",
+      "Thời gian xử lý / 1 cặp ảnh",
+      "Đảm bảo tính thời gian thực để tích hợp CI/CD tự hành.",
+      "Yêu cầu: < 150 ms"
+    ]
+  },
+  {
+    "slide_num": 22,
+    "title": "3.3. Kết quả thu được và ma trận nhầm lẫn",
+    "texts": [
+      "3.3. Kết quả thu được và ma trận nhầm lẫn",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "100.0%",
+      "Độ chính xác (Accuracy)",
+      "50/50 cặp ảnh kiểm định khớp hoàn toàn với nhãn Ground Truth.",
+      "Độ nhạy phát hiện lỗi (Recall)",
+      "25/25 cặp lỗi đều được phát hiện chính xác, FN = 0 (Không lọt lỗi).",
+      "0.0%",
+      "Tỷ lệ báo động giả (FPR)",
+      "25/25 cặp ảnh bình thường đều báo PERFECT MATCH, FP = 0.",
+      "1.0000",
+      "Điểm F1-Score Hoàn hảo",
+      "Trung bình điều hòa giữa Precision và Recall đạt điểm tuyệt đối.",
+      "TN = 25\u000b(Đúng – No Defect)",
+      "TP = 25\u000b(Đúng – Defect)"
+    ]
+  },
+  {
+    "slide_num": 23,
+    "title": "3.4. Ví dụ thực nghiệm trực quan – Lỗi màu sắc",
+    "texts": [
+      "3.4. Ví dụ thực nghiệm trực quan – Lỗi màu sắc",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM"
+    ]
+  },
+  {
+    "slide_num": 24,
+    "title": "3.4. Ví dụ thực nghiệm trực quan – Lệch bố cục",
+    "texts": [
+      "3.4. Ví dụ thực nghiệm trực quan – Lệch bố cục",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM"
+    ]
+  },
+  {
+    "slide_num": 25,
+    "title": "3.4. Ví dụ thực nghiệm trực quan – Mất phần tử",
+    "texts": [
+      "3.4. Ví dụ thực nghiệm trực quan – Mất phần tử",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM"
+    ]
+  },
+  {
+    "slide_num": 26,
+    "title": "3.4. Ví dụ thực nghiệm trực quan – Đổi văn bản",
+    "texts": [
+      "3.4. Ví dụ thực nghiệm trực quan – Đổi văn bản",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM"
+    ]
+  },
+  {
+    "slide_num": 27,
+    "title": "3.5. Ablation study",
+    "texts": [
+      "3.5. Ablation study",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "Tiến trình Tiến hóa Kỹ thuật Dẫn xuất từ Lỗi (Failure-Driven Engineering Evolution):",
+      "• Chuỗi đối chứng 4 bước: [1. Raw Diff: Vỡ 59 BBox ở S19] ➔ [2. SSIM Only: Mù màu, sót 0 BBox ở S01 (Luminance = 0.9996)] ➔ [3. No Morph: Vỡ 31 BBox chữ ở S04] ➔ [4. Full Pipeline: Cover 100% lỗi, tối ưu 2.92 BBox/lỗi, 0% FPR]."
+    ]
+  },
+  {
+    "slide_num": 28,
+    "title": "3.5. Ablation study – 4 thế hệ cấu hình",
+    "texts": [
+      "3.5. Ablation study – 4 thế hệ cấu hình",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "GEN 1: RAW PIXEL DIFF",
+      "+ Điểm mạnh: Bắt lỗi thô tốt (S02 lệch nút OK)",
+      "- Hạn chế / Đột phá: THẤT BẠI TẠI SAMPLE 19: Lệch card bị vỡ nát thành 59 BBOXES RÁC do nhạy cảm vi sai sub-pixel viền card!",
+      "GEN 2: SSIM CẤU TRÚC",
+      "+ Điểm mạnh: Khử sạch 59 Bbox rác ở S19 (gom 1 Card)",
+      "- Hạn chế / Đột phá: THẤT BẠI TẠI SAMPLE 01: Nút đổi Vàng → Đỏ bị 0 BBOX (MÙ MÀU) do cùng Luminance Y ≈ 135, SSIM = 0.9996 báo PASS!",
+      "GEN 3: DUAL-METRIC (SSIM + COLOR)",
+      "+ Điểm mạnh: Bắt trọn màu nút Sample 01 (ΔC = 145 > 25)",
+      "- Hạn chế / Đột phá: THẤT BẠI TẠI SAMPLE 04: Đổi heading bị phân mảnh 31 BBOXES TỪNG CHỮ CÁI, làm tràn Context Window của LLM!",
+      "GEN 4: FULL PIPELINE (+ MORPH ΦK)",
+      "+ Điểm mạnh: Gom 31 chữ cái → 3 Bbox ngữ nghĩa",
+      "- Hạn chế / Đột phá: ĐÍCH ĐẾN HOÀN HẢO: Đạt 100% Recall, 0% FPR trên 50 cặp ảnh test, tối ưu hóa trung bình 2.92 Bbox/lỗi."
+    ]
+  },
+  {
+    "slide_num": 29,
+    "title": "4. KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN",
+    "texts": [
+      "4. KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "Kết luận và kết quả thu được",
+      "Hạn chế và hướng phát triển",
+      "Demo"
+    ]
+  },
+  {
+    "slide_num": 30,
+    "title": "4.1. Kết luận và kết quả thu được",
+    "texts": [
+      "4.1. Kết luận và kết quả thu được",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "KẾT QUẢ 1",
+      "Xây Dựng Hoàn Chỉnh Pipeline Thị Giác",
+      "• Hiện thực hóa thành công Engine kiểm định thị giác tự động kết hợp Lanczos-4, SSIM, Max Color Diff và Morphology.",
+      "• Vận hành độc lập trên CPU với tốc độ 138.5 ms, không phụ thuộc API đám mây.",
+      "KẾT QUẢ 2",
+      "Kiểm Chứng Thực Nghiệm Khả Quan",
+      "• Đạt Accuracy 100.0%, Recall 100.0%, Precision 100.0% và False Positive Rate 0.0% trên 50 cặp ảnh benchmark độc lập.",
+      "• Bộ dữ liệu 50 cặp tiêm lỗi tự động qua Playwright trên 5 nhóm đột biến phổ biến.",
+      "ĐÓNG GÓP 1",
+      "Giải Quyết 2 Điểm Nghẽn Kinh Điển",
+      "• Loại bỏ triệt để nhiễu Anti-aliasing bằng phân ngưỡng động kép.",
+      "• Triệt tiêu bùng nổ Bounding Box (từ 49.32 → 2.92 bbox/lỗi), bảo vệ an toàn Context Window của LLM.",
+      "ĐÓNG GÓP 2",
+      "Cầu Nối Đắc Lực Cho Agentic AI",
+      "• Tự động xuất chuỗi JSON tọa độ chuẩn hóa và Prompt ngữ nghĩa tự nhiên.",
+      "• Khắc phục hoàn toàn 'điểm mù' thị giác của các công cụ APM truyền thống đối với Silent Visual Bugs."
+    ]
+  },
+  {
+    "slide_num": 31,
+    "title": "4.1. Hạn chế và hướng phát triển",
+    "texts": [
+      "4.1. Hạn chế và hướng phát triển",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "HẠN CHẾ CÒN TỒN ĐỌNG",
+      "1. Giới hạn độ phân giải đơn:",
+      "Hệ thống hiện chủ yếu kiểm định trên từng kích thước viewport cố định, chưa tự động quét ma trận Responsive trên hàng chục thiết bị cùng lúc.",
+      "2. Nội dung động phức tạp:",
+      "Các thành phần như banner quảng cáo xoay vòng, video nền hoặc đồng hồ thời gian thực gây sai khác nếu không khai báo vùng loại trừ trước.",
+      "3. Chưa phân loại ngữ nghĩa cấp cao:",
+      "Module định vị chính xác vị trí và mức độ nghiêm trọng nhưng chưa tự gắn nhãn ngữ nghĩa (như 'Header Button Missing' hay 'Banner Misalignment').",
+      "HƯỚNG PHÁT TRIỂN TƯƠNG LAI",
+      "1. Kiểm thử Responsive Đa thiết bị:",
+      "Tích hợp cơ chế tự động thay đổi viewport Playwright để kiểm thử đồng thời Desktop, Tablet và Mobile trong một lệnh chạy.",
+      "2. Loại trừ Vùng động Thông minh (Dynamic Masking):",
+      "Tự động phân tích cây DOM để nhận diện các thẻ <time>, <iframe>, <video> và áp dụng mặt nạ Ignore Region Masking tự động.",
+      "3. Mô hình Suy luận Thị giác Lai (Hybrid CV-SLM):",
+      "Sử dụng OpenCV làm mắt thần tiền xử lý crop vùng lỗi siêu tốc (<150ms), sau đó chỉ gửi duy nhất mảnh ảnh lỗi vào SLM/VLM để gán nhãn ngữ nghĩa."
+    ]
+  },
+  {
+    "slide_num": 32,
+    "title": "4.3. Demo",
+    "texts": [
+      "4.3. Demo",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM"
+    ]
+  },
+  {
+    "slide_num": 33,
+    "title": "(No Title)",
+    "texts": [
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",
+      "HỎI VÀ ĐÁP"
+    ]
+  },
+  {
+    "slide_num": 34,
+    "title": "Phụ lục (nếu có)",
+    "texts": [
+      "Phụ lục (nếu có)",
+      "Phần phụ lục này đặt những nội dung cần giải thích chi tiết cho các Slide trong phần báo cáo chính trong trường hợp giải thích các câu hỏi từ người nghe",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM"
+    ]
+  },
+  {
+    "slide_num": 35,
+    "title": "Tài liệu tham khảo",
+    "texts": [
+      "Tài liệu tham khảo",
+      "[1] R. C. Gonzalez and R. E. Woods, Digital Image Processing, 4th ed. Hoboken, NJ, USA: Pearson, 2018.",
+      "[2] G. Bradski and A. Kaehler, Learning OpenCV 4: Computer Vision with the OpenCV Library. Sebastopol, CA, USA: O'Reilly Media,2021.",
+      "[3] Z. Wang, A. C. Bovik, H. R. Sheikh, and E. P. Simoncelli, “Image Quality Assessment: From Error Visibility to Structural Similarity,” IEEE Transactions on Image Processing, vol. 13, no. 4, pp. 600–612, Apr. 2004, doi: 10.1109/TIP.2003.819861.",
+      "[4] E. Rublee, V. Rabaud, K. Konolige, and G. Bradski, “ORB: An Efficient Alternative to SIFT or SURF,” in Proceedings of the IEEE International Conference on Computer Vision (ICCV), 2011, pp. 2564–2571.",
+      "[5] N. Otsu, “A Threshold Selection Method from Gray-Level Histograms,” IEEE Transactions on Systems, Man, and Cybernetics, vol. SMC-9, no. 1, pp. 62–66, Jan. 1979.",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM"
+    ]
+  },
+  {
+    "slide_num": 36,
+    "title": "Tài liệu tham khảo",
+    "texts": [
+      "Tài liệu tham khảo",
+      "[6] OpenCV Team, OpenCV Documentation, OpenCV Foundation, 2026.",
+      "[7] Microsoft, “Visual Comparisons,” Playwright Documentation, 2026.",
+      "[8] B. J. Fogg et al., “What Makes a Web Site Credible? A Report on a Large-Scale Online Study,” in Proceedings of the ACM Conference on Designing Interactive Systems (DIS), 2001, pp. 61–68 / Stanford Persuasive Technology Lab, Stanford University.",
+      "[9] Forrester Research, “The ROI of Great UX: How UI/UX Design Drives Conversions and Revenue,” Forrester Research Reports, 2022.",
+      "[10] Baymard Institute, “49 Cart Abandonment Rate Statistics 2024 & Why Users Abandon Checkouts (UI/UX Breakdown),” Baymard Institute E-Commerce UX Benchmark, 2024.",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM"
+    ]
+  },
+  {
+    "slide_num": 37,
+    "title": "Tài liệu tham khảo",
+    "texts": [
+      "Tài liệu tham khảo",
+      "[11] PwC (PricewaterhouseCoopers), “Experience is everything: Here’s how to get it right,” PwC Consumer Intelligence Series, 2018.",
+      "[12] S. Ren, K. He, R. Girshick, and J. Sun, “Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks,” IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 39, no. 6, pp. 1137–1149, Jun. 2017, doi: 10.1109/TPAMI.2016.2577031.",
+      "[13] J. Redmon, S. Divvala, R. Girshick, and A. Farhadi, “You Only Look Once: Unified, Real-Time Object Detection,” in Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016, pp. 779–788, doi: 10.1109/CVPR.2016.91.",
+      "[14] OpenAI, “GPT-4 Technical Report,” arXiv preprint arXiv:2303.08774, 2023.",
+      "[15] Gemini Team, Google, “Gemini: A Family of Highly Capable Multimodal Models,” arXiv preprint arXiv:2312.11805, 2023.",
+      "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM"
+    ]
+  }
+]

@@ -43,3 +43,5 @@ Thumbs.db
 *.log
 output/
 results/
+scratch_*
+*.tmp
