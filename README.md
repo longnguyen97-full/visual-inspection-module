@@ -52,7 +52,7 @@ uv sync
 uv run streamlit run demo/app.py
 ```
 
-Streamlit sẽ in URL local trong terminal (mặc định `http://localhost:8501`). Tab **Custom Image Inspection** cho phép tải lên một ảnh baseline và một ảnh cần kiểm tra. Các tab duyệt dataset và benchmark yêu cầu dataset riêng theo cấu trúc bên dưới.
+Streamlit sẽ in URL local trong terminal (mặc định `http://localhost:8501`). Tab **Custom Image Inspection** cho phép tải lên một ảnh baseline và một ảnh cần kiểm tra. Để dùng các tab duyệt dataset và benchmark, tải dataset theo hướng dẫn bên dưới.
 
 ## Dùng trong Python
 
@@ -92,7 +92,13 @@ engine = VisualInspectionEngine(
 
 ## Dataset và benchmark
 
-Dataset không được lưu trong repository này. Dashboard và `run_ablation_study.py` tìm dữ liệu ở thư mục `dataset/` nằm cạnh thư mục repository, tức `../dataset/` khi chạy từ repository này. Các script benchmark mong đợi cấu trúc:
+Bộ dữ liệu [WebVR-200](https://github.com/longnguyen97-full/visual-inspection-module-data) được lưu trong repository riêng, gồm 200 cặp ảnh (400 ảnh PNG) cùng metadata `ground_truth.json`. Dashboard và `run_ablation_study.py` tìm dữ liệu tại `../dataset/`, tức thư mục `dataset/` nằm cạnh repository module. Clone dataset từ thư mục gốc của module:
+
+```bash
+git clone https://github.com/longnguyen97-full/visual-inspection-module-data.git ../dataset
+```
+
+Sau khi clone, cấu trúc cần có dạng:
 
 ```text
 dataset/
@@ -104,7 +110,7 @@ dataset/
     └── current/sample_*.png
 ```
 
-`scenario_1` là các cặp không có lỗi; `scenario_2` là các cặp có lỗi. Cần có ảnh baseline và current tương ứng trong từng thư mục. Nếu không có dataset, dashboard vẫn dùng được ở tab tải ảnh tùy chọn; những phần benchmark dựa trên dataset sẽ không chạy đầy đủ.
+`scenario_1` là 100 cặp không có lỗi; `scenario_2` là 100 cặp có lỗi. Mỗi scenario cần ảnh baseline/current có tên mẫu tương ứng. Nếu không tải dataset, dashboard vẫn dùng được ở tab tải ảnh tùy chọn, nhưng các tab duyệt và benchmark theo dataset sẽ không chạy.
 
 Khi đã đặt dataset đúng vị trí:
 
